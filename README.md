@@ -225,7 +225,7 @@ You can use additional tags. Some will be interpreted by *tonic*, others will be
 | `enum`        | A coma separated list of acceptable values for the parameter.                                                                                                                                                                                                                         |
 | `example`     | An example value to be used in OpenAPI specification. See [section below](#Providing-Examples-for-Custom-Types) for the demonstration on how to provide example for custom types.                                                                                                     |
 | `format`      | Override the format of the field in the specification. Read the [documentation](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md#dataTypeFormat) for more informations.                                                                                     |
-| `validate`    | Field validation rules. Read the [documentation](https://godoc.org/gopkg.in/go-playground/validator.v8) for more informations.                                                                                                                                                        |
+| `validate`    | Field validation rules. Read the [documentation](https://pkg.go.dev/github.com/go-playground/validator/v10) for more informations.                                                                                                                                                        |
 | `explode`     | Specifies whether arrays should generate separate parameters for each array item or object property (limited to query parameters with *form* style). Accepted values are `1`, `t`, `T`, `TRUE`, `true`, `True`, `0`, `f`, `F`, `FALSE`. Invalid value are considered to be false.     |
 
 ### JSON/XML
@@ -253,11 +253,11 @@ Note that the *OpenAPI* generator will ignore request body parameters for the ro
 
 ### Schema validation
 
-The *OpenAPI* generator recognize some tags of the [go-playground/validator.v8](https://gopkg.in/go-playground/validator.v8) package and translate those to the [properties of the schema](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#properties) that are taken from the [JSON Schema definition](http://json-schema.org/latest/json-schema-validation.html#rfc.section.6).
+The *OpenAPI* generator recognize some tags of the [go-playground/validator.v10](https://pkg.go.dev/github.com/go-playground/validator/v10) package and translate those to the [properties of the schema](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.1.md#properties) that are taken from the [JSON Schema definition](http://json-schema.org/latest/json-schema-validation.html#rfc.section.6).
 
-The supported tags are: [len](https://godoc.org/gopkg.in/go-playground/validator.v8#hdr-Length), [max](https://godoc.org/gopkg.in/go-playground/validator.v8#hdr-Maximum), [min](https://godoc.org/gopkg.in/go-playground/validator.v8#hdr-Mininum), [eq](https://godoc.org/gopkg.in/go-playground/validator.v8#hdr-Equals), [gt](https://godoc.org/gopkg.in/go-playground/validator.v8#hdr-Greater_Than), [gte](https://godoc.org/gopkg.in/go-playground/validator.v8#hdr-Greater_Than_or_Equal), [lt](https://godoc.org/gopkg.in/go-playground/validator.v8#hdr-Less_Than), [lte](https://godoc.org/gopkg.in/go-playground/validator.v8#hdr-Less_Than_or_Equal).
+All tags listed [here](https://pkg.go.dev/github.com/go-playground/validator/v10#pkg-overview) are supported.
 
-Based on the type of the field that carry the tag, the fields `maximum`, `minimum`, `minLength`, `maxLength`, `minItems`, `maxItems`, `minProperties` and `maxProperties` of its **JSON Schema** will be filled accordingly.
+Based on the type of the field that carry the tag, the fields of its **JSON Schema** will be filled accordingly.
 
 ## OpenAPI specification
 
